@@ -10,10 +10,10 @@ import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter';
       transport: {
         host: 'smtp.gmail.com',
         port: 587,
-        secure: false, // true for 465, false for other ports
+        secure: false,
         auth: {
-          user: 'luizgustavolima200@gmail.com', // generated ethereal user
-          pass: 'ozkj wybl fqve jqlc', // generated ethereal password
+          user: 'luizgustavolima200@gmail.com',
+          pass: 'ozkj wybl fqve jqlc',
         },
       },
       defaults: {
