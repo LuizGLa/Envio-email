@@ -3,21 +3,23 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter';
+import * as ConfigEnv from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigEnv.ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env' }),
     MailerModule.forRoot({
       transport: {
         host: 'smtp.gmail.com',
         port: 587,
         secure: false,
         auth: {
-          user: 'luizgustavolima200@gmail.com',
-          pass: 'ozkj wybl fqve jqlc',
+          user: process.env.EMAIL_USER,
+          pass: process.env.PASS_USER,
         },
       },
       defaults: {
-        from: '"No Reply" <no-reply@example.com>', // outgoing email ID
+        from: '"No Reply" <no-reply@example.com>',
       },
       template: {
         dir: process.cwd() + '/src',

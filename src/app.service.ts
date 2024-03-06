@@ -13,7 +13,7 @@ export class AppService {
 
   public async sendUserContact(user: User) {
     await this.mailerService.sendMail({
-      to: 'luizgustavolima200@gmail.com',
+      to: process.env.EMAIL_USER,
       subject: `Contato de ${user.name}`,
       template: './templates/contact',
       context: {
